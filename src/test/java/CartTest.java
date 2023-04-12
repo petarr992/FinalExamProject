@@ -27,6 +27,21 @@ public class CartTest extends BaseTest{
         inventoryPage.ClickOnCart();
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.saucedemo.com/cart.html");
     }
+    @Test
+    public void AddAndRemoveProducts(){
+        loginPage.Login();
+        inventoryPage.AddBikeLight();
+        inventoryPage.AddBoltTShirt();
+        inventoryPage.ClickOnCart();
+        inventoryPage.RemoveBikeLight();
+        inventoryPage.RemoveBoltTShirt();
+        inventoryPage.ClickOnContinueShopping();
+        Assert.assertEquals(inventoryPage.visibleBikeLight.isDisplayed(),true);
+        Assert.assertEquals(inventoryPage.visibleBoltTShirt.isDisplayed(),true);
+
+
+
+    }
     @AfterMethod
     public void After(){
         driver.quit();
