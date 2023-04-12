@@ -18,6 +18,16 @@ public class InventoryPage extends BasePage{
 
     @FindBy(css = "#shopping_cart_container span")
     WebElement cartnum;
+    @FindBy(id = "remove-sauce-labs-bike-light")
+    WebElement removeBikeLight;
+    @FindBy(id = "remove-sauce-labs-bolt-t-shirt")
+    WebElement removeBoltTShirt;
+    @FindBy(id = "continue-shopping")
+    WebElement continueShopping;
+    @FindBy(id = "add-to-cart-sauce-labs-bike-light")
+    public WebElement visibleBikeLight;
+    @FindBy(id = "add-to-cart-sauce-labs-bolt-t-shirt")
+    public WebElement visibleBoltTShirt;
 
     public InventoryPage(ChromeDriver driver) {
         this.driver = driver;
@@ -42,5 +52,14 @@ public class InventoryPage extends BasePage{
     }
     public void ClickOnCart(){
         cart.click();}
+    public void RemoveBikeLight(){
+        removeBikeLight.click();
+    }
+    public void RemoveBoltTShirt(){
+       removeBoltTShirt.click();
+    }
+    public void ClickOnContinueShopping(){
+        continueShopping.click();
+    }
 }
 
