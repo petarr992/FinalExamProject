@@ -4,46 +4,40 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CartTest extends BaseTest{
+public class CheckOutTest extends BaseTest {
     ChromeDriver driver;
     LoginPage loginPage;
     InventoryPage inventoryPage;
+    CheckOutPage checkOutPage;
 
     @BeforeMethod
     public void Setup() {
         driver = openBrowser();
         loginPage = new LoginPage(driver);
         inventoryPage = new InventoryPage(driver);
-
+        checkOutPage = new CheckOutPage(driver);
     }
     @Test
-    public void AddThreeItemsInCart(){
+    public void ItemTotalPrice(){
         loginPage.Login();
         inventoryPage.SortItemByValue();
         inventoryPage.AddLabsOnesie();
         inventoryPage.AddBikeLight();
         inventoryPage.AddBoltTShirt();
-        Assert.assertEquals(inventoryPage.Cart(),"3");
         inventoryPage.ClickOnCart();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://www.saucedemo.com/cart.html");
-    }
-    @Test
-    public void AddAndRemoveProducts(){
-        loginPage.Login();
-        inventoryPage.AddBikeLight();
-        inventoryPage.AddBoltTShirt();
-        inventoryPage.ClickOnCart();
-        inventoryPage.RemoveBikeLight();
-        inventoryPage.RemoveBoltTShirt();
-        inventoryPage.ClickOnConinueShopping();
-        Assert.assertEquals(inventoryPage.visibleBikeLight.isDisplayed(),true);
-        Assert.assertEquals(inventoryPage.visibleBoltTShirt.isDisplayed(),true);
+        inventoryPage.ClickOnCheckOut();
+        checkOutPage.EnterFirstName();
+        checkOutPage.EnterLastName();
+        checkOutPage.EnterZipCode();
+        checkOutPage.ClickOnContinueButton();
+        checkOutPage.ItemPrice();
+        Assert.assertEquals(checkOutPage.ItemPrice(), "Item total: $33.97");
 
     }
     @AfterMethod
     public void After(){
         driver.quit();
     }
-
 }
+
 
