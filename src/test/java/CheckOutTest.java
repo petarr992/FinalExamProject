@@ -50,6 +50,23 @@ public class CheckOutTest extends BaseTest {
         Assert.assertEquals(checkOutPage.TotalPrice(),"Total: $36.69");
 
     }
+    @Test
+    public void OrderCompleted(){
+        loginPage.Login();
+        inventoryPage.SortItemByValue();
+        inventoryPage.AddLabsOnesie();
+        inventoryPage.AddBikeLight();
+        inventoryPage.AddBoltTShirt();
+        inventoryPage.ClickOnCart();
+        inventoryPage.ClickOnCheckOut();
+        checkOutPage.EnterFirstName();
+        checkOutPage.EnterLastName();
+        checkOutPage.EnterZipCode();
+        checkOutPage.ClickOnContinueButton();
+        checkOutPage.ClickOnFinishButton();
+        checkOutPage.OrderCompleted();
+        Assert.assertEquals(checkOutPage.OrderCompleted(),"Thank you for your order!");
+    }
     @AfterMethod
     public void After(){
         driver.quit();
