@@ -18,7 +18,7 @@ public class CartTest extends BaseTest{
     }
     @Test
     public void AddThreeItemsInCart(){
-        loginPage.Login();
+        loginPage.Login("standard_user","secret_sauce");
         inventoryPage.SortItemByValue();
         inventoryPage.AddLabsOnesie();
         inventoryPage.AddBikeLight();
@@ -29,7 +29,7 @@ public class CartTest extends BaseTest{
     }
     @Test
     public void AddAndRemoveProducts(){
-        loginPage.Login();
+        loginPage.Login("standard_user","secret_sauce");
         inventoryPage.AddBikeLight();
         inventoryPage.AddBoltTShirt();
         inventoryPage.ClickOnCart();

@@ -24,32 +24,12 @@ public class LoginPage extends BasePage {
         return errorMessage.getText();
     }
 
-    public void Login() {
-        userName.sendKeys("standard_user");
-        password.sendKeys("secret_sauce");
+    public void Login(String user,String pass) {
+        userName.sendKeys(user);
+        password.sendKeys(pass);
         loginButton.click();
     }
 
-    public void LoginWithInvalidPass() {
-        userName.sendKeys("standard_user");
-        password.sendKeys("blabla");
-        loginButton.click();
-    }
 
-    public void LoginWithInvalidUserName() {
-        userName.sendKeys("standard.user");
-        password.sendKeys("secret_sauce");
-        loginButton.click();
-    }
-
-    public void LoginWithInvalidUserAndPass() {
-        userName.sendKeys("standard.user");
-        password.sendKeys("blabla");
-        loginButton.click();
-    }
-
-    public void LoginWithNoData() {
-        loginButton.click();
-    }
 }
 

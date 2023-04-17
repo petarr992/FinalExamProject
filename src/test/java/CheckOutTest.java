@@ -19,7 +19,7 @@ public class CheckOutTest extends BaseTest {
     }
     @Test
     public void ItemTotalPrice(){
-        loginPage.Login();
+        loginPage.Login("standard_user","secret_sauce");
         inventoryPage.SortItemByValue();
         inventoryPage.AddLabsOnesie();
         inventoryPage.AddBikeLight();
@@ -35,7 +35,7 @@ public class CheckOutTest extends BaseTest {
     }
     @Test
     public void TotalPriceTest(){
-        loginPage.Login();
+        loginPage.Login("standard_user","secret_sauce");
         inventoryPage.SortItemByValue();
         inventoryPage.AddLabsOnesie();
         inventoryPage.AddBikeLight();
@@ -52,7 +52,7 @@ public class CheckOutTest extends BaseTest {
     }
     @Test
     public void OrderCompleted(){
-        loginPage.Login();
+        loginPage.Login("standard_user","secret_sauce");
         inventoryPage.SortItemByValue();
         inventoryPage.AddLabsOnesie();
         inventoryPage.AddBikeLight();
