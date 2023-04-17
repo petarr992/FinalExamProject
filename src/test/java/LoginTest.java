@@ -14,27 +14,27 @@ public class LoginTest extends BaseTest{
     }
     @Test
     public void LoginOnPageWithValidData() {
-        loginPage.Login();
+        loginPage.Login("standard_user","secret_sauce");
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
     @Test
     public void WrongPassLogin(){
-        loginPage.LoginWithInvalidPass();
+        loginPage.Login("standard_user","blabla");
         Assert.assertEquals(loginPage.getTextMessage(),"Epic sadface: Username and password do not match any user in this service");
     }
     @Test
     public void WrongUserLogin(){
-        loginPage.LoginWithInvalidUserName();
+        loginPage.Login("standard.user","secret_sauce");
         Assert.assertEquals(loginPage.getTextMessage(),"Epic sadface: Username and password do not match any user in this service");
     }
     @Test
     public void WrongUserAndPassLogin(){
-        loginPage.LoginWithInvalidUserAndPass();
+        loginPage.Login("standard.user","blabla");
         Assert.assertEquals(loginPage.getTextMessage(),"Epic sadface: Username and password do not match any user in this service");
     }
     @Test
     public void LoginWithNoData(){
-        loginPage.LoginWithNoData();
+        loginPage.Login("","");
         Assert.assertEquals(loginPage.getTextMessage(),"Epic sadface: Username is required");
     }
     @AfterMethod
