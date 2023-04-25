@@ -26,9 +26,9 @@ public class CheckOutTest extends BaseTest {
         inventoryPage.AddBoltTShirt();
         inventoryPage.ClickOnCart();
         inventoryPage.ClickOnCheckOut();
-        checkOutPage.EnterFirstName();
-        checkOutPage.EnterLastName();
-        checkOutPage.EnterZipCode();
+        checkOutPage.EnterFirstName("Petar");
+        checkOutPage.EnterLastName("Radosavljevic");
+        checkOutPage.EnterZipCode("11030");
         checkOutPage.ClickOnContinueButton();
         checkOutPage.ItemPrice();
         Assert.assertEquals(checkOutPage.ItemPrice(), "Item total: $33.97");
@@ -42,9 +42,9 @@ public class CheckOutTest extends BaseTest {
         inventoryPage.AddBoltTShirt();
         inventoryPage.ClickOnCart();
         inventoryPage.ClickOnCheckOut();
-        checkOutPage.EnterFirstName();
-        checkOutPage.EnterLastName();
-        checkOutPage.EnterZipCode();
+        checkOutPage.EnterFirstName("Petar");
+        checkOutPage.EnterLastName("Radosavljevic");
+        checkOutPage.EnterZipCode("11030");
         checkOutPage.ClickOnContinueButton();
         checkOutPage.TotalPrice();
         Assert.assertEquals(checkOutPage.TotalPrice(),"Total: $36.69");
@@ -59,9 +59,9 @@ public class CheckOutTest extends BaseTest {
         inventoryPage.AddBoltTShirt();
         inventoryPage.ClickOnCart();
         inventoryPage.ClickOnCheckOut();
-        checkOutPage.EnterFirstName();
-        checkOutPage.EnterLastName();
-        checkOutPage.EnterZipCode();
+        checkOutPage.EnterFirstName("Petar");
+        checkOutPage.EnterLastName("Radosavljevic");
+        checkOutPage.EnterZipCode("11030");
         checkOutPage.ClickOnContinueButton();
         checkOutPage.ClickOnFinishButton();
         checkOutPage.OrderCompleted();
