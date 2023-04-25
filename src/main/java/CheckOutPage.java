@@ -22,21 +22,19 @@ public class CheckOutPage extends BasePage {
    WebElement completeOrder;
 
 
-
-
     public CheckOutPage(ChromeDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
 
     }
-    public void EnterFirstName(){
-        firstName.sendKeys("Petar");
+    public void  EnterFirstName(String name){
+        firstName.sendKeys(name);
     }
-    public void EnterLastName(){
-        lastName.sendKeys("Radosavljevic");
+    public void EnterLastName (String last){
+        lastName.sendKeys(last);
     }
-    public void EnterZipCode(){
-        zipCode.sendKeys("11030");
+    public void EnterZipCode (String zip){
+        zipCode.sendKeys(zip);
     }
     public void ClickOnContinueButton(){
         continueButton.click();
